@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ШАБЛОНИЗАТОР</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/index.css') }}">
+  <script src="{{ url_for('static', filename='index.js') }}"></script>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:100" rel="stylesheet">
+</head>
+<body bgcolor="#dee2e6">
+<div class="top top_ident">
+  <div class="button_modal"><button id="openModalBtn">Создать шаблон</button>
+  </div>
+  <div class="selector_filter">
+    <section>
+      <h>Бренд</h>
+      <select id="brand_filter">
+        <option value=""></option>
+      </select>
+      <h>Тип изделия</h>
+      <select id="product_type_filter">
+        <option value=""></option>
+      </select>
+      <h>Подтип изделия</h>
+      <select id="product_subtype_filter">
+        <option value=""></option>
+      </select>
+      <h>Тип металла</h>
+      <select id="metal_type_filter">
+        <option value=""></option>
+      </select><br>
+    </section>
+  </div>
+</div>
+<div class="struct_shablone" id="templates"></div>
+<!-- Модальное окно -->
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <h1 style=" color: rgb(0, 0, 0); font-weight: bold; font-family: 'Arial'; font-size: 28px; text-align: center; padding: 1px;">Параметры создания</h1>
+    
+    <div class="filt_centr selector_filter">
+      <div class="modal_filter">
+        <h2 class="text_modal">Бренд</h2>
+        <select id="brand"></select>
+      </div>
+      <div class="modal_filter">
+        <h2 class="text_modal">Тип изделия</h2>
+        <select id="producttype"></select>
+      </div>
+      <div class="modal_filter">
+        <h2 class="text_modal">Подтип изделия</h2>
+        <select id="productsubtype"></select>
+      </div>
+      <div class="modal_filter">
+        <h2 class="text_modal">Тип металла</h2>
+        <select id="metaltype"></select><br>
+      </div>
+    </div>
+    <button id="closeModalBtn" class="btn_modal">Закрыть</button>
+    <button id="createPattern" class="btn_modal" style="float: right;">Создать</button>
+  </div>
+</div>
+  <script>
+    console.log('ddddd');
+  </script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>РЕДАКТИРОВАНИЕ ШАБЛОНА</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/edit_pattern.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100" rel="stylesheet">
+    <script src="{{ url_for('static', filename='edit_pattern.js') }}"></script>
+</head>
+
+<body bgcolor="#dee2e6">
+    <div class="edit_app">
+        <div class="left-menu">
+            <div class="top-element">
+                <a href="http://127.0.0.1:5000"
+                    style="text-decoration:none; font-family: Montserrat, Helvetica, sans-serif; font-size: 35px; color: #ffffff; text-align: center; font-weight: bold; cursor: default;">
+                    SOKOLOV
+                </a>
+                <hr class="liniya">
+            </div>
+
+            <button class="panel" id="edit-canvas-btn">Редактирование холста</button>
+
+            <button id="add-text-btn" class="panel">Добавить текст</button>
+
+            <input type="file" id="file-input" accept=".png" style="display: none;">
+            <button class="panel" id="add-img-btn">Добавить картинку</button>
+
+            <button class="panel" id="add_product">Изделие</button>
+
+            <div class="preview">
+                <hr style="width: 80%">
+                <button id="save-btn" class="preview" style="padding-top: 30px;">Сохранить</button>
+                <button id="download-zip-btn" class="preview">Скачать архив</button>
+            </div>
+        </div>
+
+
+        <div class="field" id="fieldId">
+            <canvas id="canvas" class="canvas"></canvas>
+        </div>
+
+        <div class="right-menu">
+            <div id="canvas-property-panel">
+                <div class="right-text">Холст</div>
+                <div class="text-right-menu">
+                    <div class="property_element">
+                        <h class="text_pole">Высота:</h>
+                        <input class="text-field__input" id="canvas-height" type="text" name="text" placeholder="Высота">
+                    </div>
+                    <div class="property_element">
+                        <h class="text_pole">Ширина:</h>
+                        <input class="text-field__input" id="canvas-width" type="text" name="text" placeholder="Ширина">
+                    </div>
+                    <div class="property_element">
+                        <h class="text_pole">Цвет фона</h>
+                        <input class="cr" type="color" id="canvas-color" value="#ffffff">
+                    </div>
+                </div>
+            </div>
+
+            <div id="text-properties-panel" style="display:none">
+                <div class="right-text">Редактирование текста</div>
+                <div class="text-right-menu">
+                    <div class="property_element">
+                        <p class="text_pole">Текст:</p>
+                        <input class="width_field_max text-field__input" type="text" id="text-input">
+                    </div>
+                    <div class="property_element">
+                        <p class="text_pole">По горизонтали:</p>
+                        <input class="text-field__input width_field25" type="text" id="text-x">
+                    </div>
+                    <div class="property_element">
+                        <p class="text_pole">По вертикали:</p>
+                        <input class="text-field__input width_field25" type="text" id="text-y">
+                    </div>
+                    <div class="property_element">
+                        <p class="text_pole">Размер шрифта:</p>
+                        <input class="text-field__input width_field25" type="number" id="font-size" min="1">
+                    </div>
+
+                    <div class="property_element">
+                        <h class="text_pole">Шрифт:</h>
+                        <select id="font" class="filter">
+                            <option value="Arial">Arial</option>
+                            <option value="Times New Roman">Times New Roman</option>
+                            <option value="Courier New">Courier New</option>
+                            <option value="Verdana">Verdana</option>
+                            <option value="Montserrat">Montserrat</option>
+                        </select>
+                    </div>
+
+                    <div class="property_element">
+                        <h class="text_pole">Жирность:</h>
+                        <select class="filter" id="font-weight">
+                            <option value="normal">Обычный</option>
+                            <option value="bold">Жирный</option>
+                        </select>
+                    </div>
+
+
+                    <div class="property_element">
+                        <h class="text_pole">Цвет текста</h>
+                        <input class="cr" type="color" value="#ffffff" id="text-color"/>
+                    </div>
+
+                </div>
+                <div class="button_delete"><button class="delete" id="delete-text">Удалить</button></div>
+            </div>
+
+            <div id="image-properties-panel" style="display:none">
+                <div class="right-text">Редактирование изображения</div>
+                <div class="text-right-menu">
+                    <div class="property_element">
+                        <h class="text_pole">По горизонтали:</h>
+                        <input style="width:25%" class="text-field__input" type="text" id="image-x">
+                    </div>
+                    <div class="property_element">
+                        <h class="text_pole">По вертикали:</h>
+                        <input style="width:25%" class="text-field__input" type="text" id="image-y">
+                    </div>
+                    <div class="property_element">
+                        <h class="text_pole">Ширина:</h>
+                        <input style="width:25%" class="text-field__input" type="text" id="image-width">
+                    </div>
+                    <div class="property_element">
+                        <h class="text_pole">Выссота:</h>
+                        <input style="width:25%" class="text-field__input" type="text" id="image-height">
+                    </div>
+                    <div class="property_element">
+                        <h class="text_pole">Тени</h>
+                        <input id="image-shadow" class="checkbox text-field__input" type="checkbox"/>
+                    </div>
+
+                    <div class="button_delete"><button class="delete" id="delete-image">Удалить</button></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
